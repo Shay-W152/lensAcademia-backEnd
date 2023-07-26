@@ -4,6 +4,7 @@ class Author(models.Model):
     name = models.CharField(max_length=250)
     url = models.URLField(max_length=250)
     country = models.CharField(max_length=50)
+    research_papers = models.ManyToManyField('ResearchPaper')
     
 
     def __str__(self):
@@ -20,7 +21,7 @@ class ResearchPaper(models.Model):
     researchers = models.ManyToManyField(Author)  
     keywords = models.ManyToManyField(Keyword)
     name = models.CharField(max_length=250)
-    abstract = models.CharField(max_length=500)
+    abstract = models.CharField(max_length=5000)
     url = models.URLField(max_length=250)
     country = models.CharField(max_length=50)
     
