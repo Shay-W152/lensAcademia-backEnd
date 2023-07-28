@@ -5,26 +5,25 @@ class Author(models.Model):
     url = models.URLField(max_length=250)
     country = models.CharField(max_length=50)
     research_papers = models.ManyToManyField('ResearchPaper')
-    
 
     def __str__(self):
         return self.name
 
 class Keyword(models.Model):
     word = models.CharField(max_length=250, unique=True)
+    research_papers = models.ManyToManyField('ResearchPaper')
 
     def __str__(self):
         return self.word
 
 class ResearchPaper(models.Model):
     tg = models.ForeignKey('TG', on_delete=models.SET_NULL, null=True)
-    researchers = models.ManyToManyField(Author)  
+    researchers = models.ManyToManyField(Author)
     keywords = models.ManyToManyField(Keyword)
     name = models.CharField(max_length=250)
     abstract = models.CharField(max_length=5000)
     url = models.URLField(max_length=250)
     country = models.CharField(max_length=50)
-    
 
     def __str__(self):
         return self.name
