@@ -54,12 +54,12 @@ MIDDLEWARE = [
 ]
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
+    # Allow all permissions for all views
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.AllowAny',
     ]
 }
+
 
 CORS_ALLOWED_ORIGINS = [
     "https://example.com",
